@@ -1,0 +1,72 @@
+:root{
+    /*BLUES*/
+    --color-blue-light: #053160;
+    --color-blue-dark: #031E3C;
+    
+    /*YELLOWS*/
+    --color-yellow: #FFC80B;    
+
+    --button-height: 92px;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box;
+}
+
+html, body{
+    max-width:100%;
+    min-height: 100vh;
+}
+
+html{
+    background-color: var(--color-blue-dark);
+
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-blue-light);
+    max-width: 800px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+button{
+    border: none;
+    background-color: transparent;
+    color: var(--color-yellow);
+    cursor: pointer;
+    font-size: clamp(2.5rem, 3vw, 3.5rem);
+    font-weight: bold;
+    flex: 1;
+}
+
+#info{
+    display: flex;
+    height: var(--button-height);
+}
+
+#menu{
+    display: flex;
+    height: var(--button-height);
+    justify-self: end;
+}
+
+#controller{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+
+/* #controller > button{
+    width: 30px;
+    height: 60px;
+}
+
+#controller > button:nth-child(2){
+    width: 50px;
+} */
