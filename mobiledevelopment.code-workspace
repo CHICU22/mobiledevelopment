@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "mobiledevelopment",
+			"path": "."
+		},
+		{
+			"name": "assets",
+			"path": "../../Downloads/assets"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "mobiledevelopment"
+	}
+}
