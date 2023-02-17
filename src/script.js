@@ -1,17 +1,7 @@
+import SliderBar from "./components/SlideBar.js";
+
 window.onload=() => {
-  const volumeSlider = document.querySelector("input");
+  const slideBar = new SliderBar("#volume");
 
-  const changeSliderValue = () => {
-
-    volumeSlider.style.width = `${volumeSlider.value}%`;
-
-    /*window. getComputedStyle(element, '::before');  --- > buscar o pseudo elemento*/
-
-    document.documentElement.style.setProperty(
-      "--slider-position",
-      `${volumeSlider.value}%`
-    );
-  };
-
-  volumeSlider.addEventListener("input", changeSliderValue);
-}
+  const scrub = new SliderBar("#scrub")
+};

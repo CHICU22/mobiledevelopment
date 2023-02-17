@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music streaming app</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </head>
 <body>
     <div id="info">
@@ -29,12 +29,17 @@
             </svg>
         </button>
     </div>
-    <div id="volume">
+    <div id="scrub" class="range">
+        <div class="range-bar"></div>
+        <input type="range" min="0" max="100" value="10">
+    </div>
+    <div id="volume" class="range">
+        <div class="range-bar"></div>
         <input type="range" min="0" max="100" value="10">
     </div>
     <div id="menu">
         <button>
-            <svg width="100%" height="100%" viewBox="0 0 11 11" fill="var(--color-yellow)">
+            <svg width="100%" height="70%" viewBox="0 0 11 11" fill="var(--color-yellow)">
                 <rect x="0" y="0" width="10.355" height="2.609" />
                 <rect x="0" y="3.876" width="10.355" height="2.609" />
                 <rect x="0" y="7.746" width="10.355" height="2.609" />
