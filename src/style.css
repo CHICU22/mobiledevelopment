@@ -46,6 +46,10 @@ button{
     flex: 1;
 }
 
+button:active{
+    transform: scale(0.9);
+}
+
 #info{
     display: flex;
     height: var(--button-height);
@@ -91,6 +95,13 @@ input[type="range"]{
     pointer-events: none;
 }
 
+.toggle{
+
+}
+
+.toggle>*{
+    display: none;
+}
 /* #controller > button{
     width: 30px;
     height: 60px;
