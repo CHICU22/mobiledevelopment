@@ -1,6 +1,6 @@
 export default class Component{
-    #element;
+    element;
     constructor(elementID){
-        this.#element = document.querySelector(elementID);
+        this.element = document.querySelector(elementID);
     }
 }
