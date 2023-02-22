@@ -1,9 +1,9 @@
-import Component from "./Component.js";
+import Button from "./Button.js";
 
-export default class ToggleButton extends Component{
+export default class ToggleButton extends Button{
 
     #togglesList;
-
+    #currentToggleIndex = 0;
     constructor(elemID) {
         super(elemID);
 
@@ -13,6 +13,18 @@ export default class ToggleButton extends Component{
 
     toggle(index) {
 
-        this.#togglesList[index].style.display = "initial";
+        this.#togglesList[this.#currentToggleIndex].style.display = "none";
+
+        this.#currentToggleIndex++;
+        if(this.#currentToggleIndex >= this.#togglesList.length){
+            this.#currentToggleIndex = 0;
+        };
+
+        this.#togglesList[this.#currentToggleIndex].style.display = "initial";
+
+        // this.#togglesList[this.#currentToggleIndex].style.display = "none";
+        // this.#currentToggleIndex = index;
+        // this.#togglesList[this.#currentToggleIndex].style.display = "initial";
     }
+
 }
