@@ -6,13 +6,8 @@ export default class Button extends Component{
         super(elemID);
     }
 
-    get onClick(){
-
-    }
-    set onClick(callback) {
-
-        console.log("asdasda");
-        this.element.onclick = (e) => {
+    onClick(callback) {
+        this.element.onclick = () => {
             callback("button clicked");
         }
     }
