@@ -9,6 +9,8 @@
     --button-height: 92px;
 
     --slider-position: 10%;
+
+    --speed: 0.2s;
 }
 
 *{
@@ -28,6 +30,7 @@ html{
 }
 
 body{
+    position: relative;
     display: flex;
     flex-direction: column;
     background-color: var(--color-blue-light);
@@ -101,6 +104,16 @@ input[type="range"]{
 
 .toggle>*{
     display: none;
+}
+
+#menu-container{
+    position: absolute;
+    inset: 0;
+    bottom: var(--button-height);
+    background-color: var(--color-yellow);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform var(--speed) ease;
 }
 /* #controller > button{
     width: 30px;
