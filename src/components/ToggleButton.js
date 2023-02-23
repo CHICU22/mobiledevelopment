@@ -8,7 +8,8 @@ export default class ToggleButton extends Button{
         super(elemID);
 
         this.#togglesList = this.element.children;
-        console.log(this.element);
+        
+        this.#togglesList[this.#currentToggleIndex].style.display = "initial";
     }
 
     toggle(index) {
@@ -21,10 +22,6 @@ export default class ToggleButton extends Button{
         };
 
         this.#togglesList[this.#currentToggleIndex].style.display = "initial";
-
-        // this.#togglesList[this.#currentToggleIndex].style.display = "none";
-        // this.#currentToggleIndex = index;
-        // this.#togglesList[this.#currentToggleIndex].style.display = "initial";
     }
 
 }
