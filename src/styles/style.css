@@ -1,0 +1,162 @@
+:root{
+    /*BLUES*/
+    --color-blue-light: #053160;
+    --color-blue-dark: #031E3C;
+    
+    /*YELLOWS*/
+    --color-yellow: #FFC80B;    
+
+    --button-height: 92px;
+
+    --slider-position: 10%;
+
+    --speed: 0.2s;
+
+    --font-size: clamp(2.5rem, 3vw, 3.5rem);
+}
+
+*{
+    font-size: system-ui;
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box;
+}
+
+html, body{
+    max-width:100%;
+    min-height: 100vh;
+}
+
+html{
+    background-color: var(--color-blue-dark);
+
+}
+
+body{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-blue-light);
+    max-width: 800px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+button{
+    border: none;
+    background-color: transparent;
+    color: var(--color-yellow);
+    cursor: pointer;
+    font-size: var(--font-size);
+    font-weight: bold;
+    flex: 1;
+}
+
+button:active{
+    transform: scale(0.9);
+}
+
+#info{
+    display: flex;
+    height: var(--button-height);
+}
+
+
+#menu{
+    display: flex;
+    height: var(--button-height);
+    justify-self: end;  
+}
+
+#controller{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex: 1;
+}
+
+#volume{
+    display: flex;
+    flex: 1;
+}
+
+input[type="range"]{
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+}
+
+.range{
+    flex: 1;
+    position: relative;
+    display: flex;
+}
+
+.range-bar{
+    flex : 1;
+    width: 100%;
+    transform-origin: left;
+    transform: scaleX(0.5);
+    background-color: var(--color-yellow);
+    pointer-events: none;
+}
+
+.toggle{
+
+}
+
+.toggle>*{
+    display: none;
+}
+
+#menu-container{
+    position: absolute;
+    display: flex;
+    inset: 0;
+    bottom: var(--button-height);
+    background-color: var(--color-yellow);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform var(--speed) ease;
+}
+
+#menu-container .lists-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    flex: 1;
+    overflow-y: scroll;
+}
+
+#menu-container ul{
+    position: absolute;
+    inset: 0;
+    flex: 1;
+    display:  flex;
+    flex-direction: column;
+    transition: transform var(--speed) ease;
+}
+
+#menu-container li{
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    font-size: var(--font-size);
+    text-transform: uppercase;
+    font-weight: bold;
+    gap: 10px;
+    padding: 10px;
+    color: var(--color-blue-dark);
+    max-height: var(--button-height);
+    cursor: pointer;
+}
+/* #controller > button{
+    width: 30px;
+    height: 60px;
+}
+
+#controller > button:nth-child(2){
+    width: 50px;
+} */
+
