@@ -1,16 +1,16 @@
 :root{
     /*BLUES*/
-    --color-blue-light: #053160;
-    --color-blue-dark: #031E3C;
+    --color-blue-light: #9D79BC;
+    --color-blue-dark: #A14DA0;
     
     /*YELLOWS*/
-    --color-yellow: #FFC80B;    
+    --color-yellow: #91C4F2;    
 
     --button-height: 92px;
 
     --slider-position: 10%;
 
-    --speed: 0.2s;
+    --speed: 200ms;
 
     --font-size: clamp(2.5rem, 3vw, 3.5rem);
 }

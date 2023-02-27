@@ -4,14 +4,11 @@ export default class ListButton extends Button{
 
     #listButtonData
     constructor(data){
-
         super();
-
 
         this.#listButtonData = data;
 
         const divElement = document.createElement("div");
-
 
         const template = document.querySelector(".list-item");
         const clone = template.content.cloneNode(true);
@@ -22,8 +19,8 @@ export default class ListButton extends Button{
 
         this.setElement(divElement.children[0]);
 
-        const iconsContainer = divElement.querySelector(".toggle");
         if(data.type==="folder"){
+            const iconsContainer = divElement.querySelector(".toggle");
             iconsContainer.children[0].style.display = "initial";
         }
     }
