@@ -1,11 +1,17 @@
-import Button from "./Button.js";
+import Button from "../components/Button.js";
 
 export default class ToggleButton extends Button{
-
     #togglesList;
     #currentToggleIndex = 0;
+
     constructor(elemID, callback) {
         super(elemID, callback);
+
+
+        if(elemID ==="#info-button") {
+
+            console.log(callback)
+        }
         this.#togglesList = this.element.children;
         this.toggle(0);
     }

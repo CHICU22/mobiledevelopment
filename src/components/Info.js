@@ -13,6 +13,7 @@ export default class Info extends Component{
         this.#infoContainer = this.element.querySelector("#info-container");
 
         this.#infoButton = new ToggleButton("#info-button", (value) => {
+            
             this.#isOpened ? this.close() : this.open();
             this.callback(this.#isOpened);
         });
@@ -26,7 +27,8 @@ export default class Info extends Component{
     }
 
     close(){
-        if(this.#isOpened) return;
+
+        if(!this.#isOpened) return;
         this.#infoContainer.style.transform = "scaleY(0)";
         this.#infoButton.toggle(0);
         this.#isOpened = false;

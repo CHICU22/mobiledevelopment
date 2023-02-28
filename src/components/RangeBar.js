@@ -4,8 +4,8 @@ export default class RangeBar extends Component{
 
     #rangeInput;
     #rangeBar;
-    constructor(rangeID=null){
-        super(rangeID);
+    constructor(rangeID=null ,callback){
+        super(rangeID,callback);
 
         this.#rangeInput = this.element.querySelector("input[type='range']");
         this.#rangeBar = this.element.querySelector(".range-bar");

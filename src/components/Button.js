@@ -1,8 +1,8 @@
-import Component from "./Component.js";
+import Component from "../components/Component.js";
 
 export default class Button extends Component{
-    constructor(elemID){
-        super(elemID);
+    constructor(elemID, callback){
+        super(elemID,callback);
         if(this.element) this.element.onclick = () => this.callback();
     }
 

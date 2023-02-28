@@ -10,7 +10,6 @@ export default class Menu extends Component{
     #menuButton;
     #backButton;
     #currentList;
-    #listsContainer;
     #isOpen = false;
     constructor(elemID, callback){
         super(elemID, callback);
@@ -49,9 +48,11 @@ export default class Menu extends Component{
     this.#backButton.displayed = this.#menuContainer.children.length > 1;
     }
 
-    #deleteList(index) {
+    #deleteList(index=null) {
         if(index !== null){
             const list = this.#menuContainer.children[index];
+
+            console.log(this.#menuContainer)
             this.#menuContainer.removeChild(list);
 
             this.#currentList = this.#menuContainer.children[this.#menuContainer.children.length - 1];
