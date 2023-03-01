@@ -4,7 +4,6 @@ export default class Component{
     SPEED = 0;
 
     constructor(elementID = null, callback = () => {console.log("cb not defined")}){
-
         this.element = document.querySelector(elementID);
         this.callback = callback;
 

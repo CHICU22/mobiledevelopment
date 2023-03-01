@@ -39,10 +39,13 @@ export default class Menu extends Component{
             ul.appendChild(listButton.element);
     });
 
+    if(this.#currentList) this.#currentList.style.transform = "translateX(-100%)";
+
     this.#menuContainer.appendChild(ul);
     this.#currentList = ul;
 
     requestAnimationFrame(() => {
+
         this.#currentList.style.transform = "translateX(0)"
     });
     this.#backButton.displayed = this.#menuContainer.children.length > 1;
@@ -56,7 +59,8 @@ export default class Menu extends Component{
             this.#menuContainer.removeChild(list);
 
             this.#currentList = this.#menuContainer.children[this.#menuContainer.children.length - 1];
-            this.#currentList.style.transform = "transformX(0)";
+
+            this.#currentList.style.transform = "translateX(0)";
         } else {
             this.#menuContainer.innerHTML = "";
             this.#currentList = null;

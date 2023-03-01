@@ -4,7 +4,7 @@ import Component from "../components/Component.js";
 
 export default class Controller extends Component{
 
-    currentState = false;
+    currentState = "pause";
 
     #previousButton;
     #actionButton;
@@ -29,7 +29,7 @@ export default class Controller extends Component{
     setState(state){
         this.currentState = state;
         let val = 0;
-        switch (this.currentState){
+        switch (this.currentState) {
             case "play":
                 val=1;
             break;

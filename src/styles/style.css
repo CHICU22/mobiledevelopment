@@ -120,6 +120,10 @@
     flex: 1;
   }
   
+#scrubb{
+  flex: 1;
+  max-height: 32px;
+}
   
   /* VOLUME */
   #volume {

@@ -52,7 +52,8 @@ export default class AudioPlayer{
         this.#playlist = playlist || this.#playlist;
         this.currentTrack = track || this.currentTrack;
 
-        if(!this.audio.paused) this.#audio.pause();
+
+        if(!this.#audio.paused) this.#audio.pause();
 
         try{
             this.#audio.src = this.#playlist[this.#trackIndex].url;
@@ -61,6 +62,10 @@ export default class AudioPlayer{
             this.currentState = "error";
             return false;
         }
+    }
+
+    pause(){
+        this.#audio.pause();
     }
 
     next() {
@@ -88,5 +93,12 @@ export default class AudioPlayer{
     }
     set volume(val){
         this.#audio.volume = val / 100;
+    }
+
+    get time(){
+        
+    }
+    set time(value){
+
     }
 }

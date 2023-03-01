@@ -2,26 +2,47 @@ import Controller from "../components/Controller.js";
 import Menu from "../components/Menu.js";
 import Info from "../components/Info.js";
 import RangeBar from "../components/RangeBar.js";
+import AudioPlayer from "../components/AudioPlayer.js";
 
 let appData;
+const API_URL = "https://inexpensive-relieved-chartreuse.glitch.me/";
 
 let info;
 let controller;
+let scrubb;
 let volumeBar;
 let menu;
+let audioPlayer;
 let fileInput;
 
 window.onload = async () => {
-  const req = await fetch("./styles/app_data.json");
-  appData = await req.json();
 
+  await initialize(API_URL);
   setupLayout();
   setupAudio();
 } 
 
+const initialize = async(api_url) => {
+
+  const req = await fetch(api_url);
+  const res = await req.json();
+
+  appData = [
+    ...res, 
+    {
+      type: "open",
+      name: "open"
+    },
+    {
+      type: "reset",
+      name: "reset"
+    }
+  ]
+}
+
 const setupAudio = () => {
 
-  audioPlayer = new audioPlayer((action, error) => {
+  audioPlayer = new AudioPlayer((state, error) => {
     controller.setState(state);
 
     switch(state){
@@ -54,14 +75,34 @@ const setupLayout = () => {
   })
 
   controller = new Controller("#controller", (value) => {
-    console.log("controller", value);
+    
+    console.log(value)
+    switch(value) {
+      case "play":
+      audioPlayer.currentTrack ? audioPlayer.play() : menu.open();
+      break;
+      case "pause":
+        audioPlayer.pause();
+      break;
+      case "next":
+        audioPlayer.next();
+      break;
+      case "previous":
+        audioPlayer.previous();
+      break;
+    }
   })
 
-  volumeBar = new RangeBar("#volume", (value) => {
-    console.log("volume changed", value)
+  scrubb = new RangeBar("#scrubb", (value) => {
+
+    console.log(value);
   });
 
-  menu = new Menu("#menu", (value) => {
+  volumeBar = new RangeBar("#volume", (value) => {
+    audioPlayer.volume = value;
+  });
+
+  menu = new Menu("#menu", async (value) => {
 
     switch(value.type){
       case "opening":
@@ -70,6 +111,7 @@ const setupLayout = () => {
       case "music":
       case "file":
         menu.close();
+        await audioPlayer.play(value, fetchPlaylist(appData, value.id))
       break;
       case "open":
         fileInput.click();
@@ -85,5 +127,19 @@ const setupLayout = () => {
   fileInput.onchange = () => {
     console.log("input changed");
   }
+}
+
+const fetchPlaylist = (data, itemID) => {
+  let playlist = null;
+  for (let i = 0; i < data.length; i++) {
+    const element = data[i];
+
+    if(element.children) playlist = fetchPlaylist(element.children, itemID)
+    else if(element.id === itemID) playlist = data;
+
+    if(playlist) break;
+  }
+
+  return playlist;
 }
 
